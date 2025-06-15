@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Analytics Dashboard features
 
-## Getting Started
+- Total Number of Members
+- Total Number of Active Members
+- Total Number of Inactive Members
+- Total Number of Pending Members
 
-First, run the development server:
+WhatsApp Sms Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Total Number of Sent Messages
+- Upcoming Scheduled Messages
+- Previous Sent Messages
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Email Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Total Number of Sent Emails
+- Upcoming Scheduled Emails
+- Previous Sent Emails
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Backend Logics
 
-## Learn More
+- Automation for Sending Whatsapp Messages
+- Automation for Sending Emails
+- Membership Verification
+- Membership Activation
+- Membership Deactivation
+- Routing Logic for Only Memberships subscpriptions (without membership cannot use any other features)
 
-To learn more about Next.js, take a look at the following resources:
+App Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- User Authentication ✅
+- Members Management for Admins
+- SMS Gateway Integration
+- Analytics Dashboard
+- Twillio whatsapp integration
+- Twillio Email integration
+- Payment Gateway Integration (Phonepe , Razorpay)

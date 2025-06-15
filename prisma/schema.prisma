@@ -1,0 +1,118 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           Int            @id @default(autoincrement())
+  clerkId      String         @unique
+  username     String
+  email        String
+  phone        String
+  role         UserRole       @default(USER)
+  upiid        String
+  createdAt    DateTime       @default(now())
+  modifiedAt   DateTime       @updatedAt
+  isDeleted    Boolean        @default(false)
+  members      member[]
+  Subscription Subscription[]
+}
+
+model member {
+  id         Int          @id @default(autoincrement())
+  name       String
+  email      String
+  phone      String
+  address    String?
+  joindate   DateTime
+  expirydate DateTime
+  status     MemberStatus @default(ACTIVE)
+  createdAt  DateTime     @default(now())
+  createdBy  Int
+  modifiedAt DateTime     @updatedAt
+  isDeleted  Boolean      @default(false)
+  user       User         @relation(fields: [createdBy], references: [id])
+}
+
+model Subscription {
+  id               Int              @id @default(autoincrement())
+  userId           Int
+  subscriptionType SubscriptionType
+  startDate        DateTime         @default(now())
+  endDate          DateTime
+  amount           Float
+  isActive         Boolean          @default(true)
+  createdAt        DateTime         @default(now())
+  createdBy        String
+  modifiedAt       DateTime         @updatedAt
+  modifiedBy       String
+  user             User             @relation(fields: [userId], references: [id])
+}
+
+model EmailLog {
+  id          Int         @id @default(autoincrement())
+  to          String
+  subject     String
+  body        String
+  status      EmailStatus @default(PENDING) 
+  scheduledAt DateTime?
+  sentAt      DateTime?
+  error       String?
+  userId      Int? 
+  createdAt   DateTime    @default(now())
+}
+
+model WhatsAppLog {
+  id          Int           @id @default(autoincrement())
+  to          String
+  body        String
+  status      MessageStatus @default(PENDING) 
+  scheduledAt DateTime? 
+  sentAt      DateTime?
+  error       String?
+  userId      Int? 
+  messageSid  String? 
+  createdAt   DateTime      @default(now())
+}
+
+enum MessageStatus {
+  PENDING
+  SENT
+  FAILED
+  DELIVERED
+}
+
+enum EmailStatus {
+  PENDING
+  SENT
+  FAILED
+}
+
+enum SubscriptionType {
+  MONTHLY
+  QUARTERLY
+  HALF_YEARLY
+  YEARLY
+}
+
+enum UserRole {
+  ADMIN
+  USER
+}
+
+enum MemberStatus {
+  ACTIVE
+  INACTIVE
+  PENDING
+}
