@@ -1,7 +1,7 @@
 "use client";
 
-import { useState , useRef } from "react";
-
+import { useState  } from "react";
+import { redirect } from "next/navigation";
 import { createMember } from "@/app/actions/member";
 import { toast } from "sonner";
 import MemberRegister from "@/components/blocks/MemberRegister";
@@ -53,6 +53,7 @@ export default function MemberPage() {
         joiningDate: undefined,
         expiryDate: undefined,
       });
+      redirect("/dashboard/members/list");
     } else {
       toast.error("Failed to register member");
       console.log(res.error);

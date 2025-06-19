@@ -1,8 +1,19 @@
+import { createUser } from '@/app/actions/user';
+import UserForm from '@/components/blocks/UserForm'
+
 import React from 'react'
 
-function page() {
+
+async function page() {
+
+
+ 
+
   return (
-    <div>page</div>
+    <div >
+      <UserForm action={createUser} />
+    </div>
+   
   )
 }
 

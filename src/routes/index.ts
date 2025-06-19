@@ -15,8 +15,12 @@ export const PATH_DASHBOARD = {
       list : path(ROOTS_DASHBOARD, '/members/list'),
       new : path(ROOTS_DASHBOARD, '/members/new'),
       view : path(ROOTS_DASHBOARD, '/members/:id'),
-      edit : path(ROOTS_DASHBOARD, '/members/:id/edit')
-    },
+     },
+     services : {
+      root : path(ROOTS_DASHBOARD, '/services'),
+      email : path(ROOTS_DASHBOARD, '/services/email'),
+      whatsapp : path(ROOTS_DASHBOARD, '/services/whatsapp'),
+     },
     account: {
       root : path(ROOTS_DASHBOARD, '/account'),
       settings : path(ROOTS_DASHBOARD, '/account/settings'),

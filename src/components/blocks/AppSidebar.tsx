@@ -1,5 +1,5 @@
 import React from 'react'
-import { ChartArea, SquareUser, Plus, Pencil, ChevronRight , Settings, CircleUser } from 'lucide-react'
+import { ChartArea, SquareUser, Plus, ChevronRight , Settings, CircleUser  , Mail , MessageCircle } from 'lucide-react'
 import {
   Sidebar,
   SidebarContent,
@@ -37,7 +37,13 @@ function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       items: [
         { title: 'All Members', path: PATH_DASHBOARD.members.list, icon: SquareUser },
         { title: 'New Member', path: PATH_DASHBOARD.members.new, icon: Plus },
-        { title: 'Edit Member', path: PATH_DASHBOARD.members.edit, icon: Pencil }
+      ]
+    },
+     {
+      title: 'Services',
+      items: [
+        { title: 'Email Service', path: PATH_DASHBOARD.services.email, icon: Mail },
+        { title: 'Whatsapp Service', path: PATH_DASHBOARD.services.whatsapp, icon: MessageCircle },
       ]
     },
     {

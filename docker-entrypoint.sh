@@ -6,7 +6,7 @@ until nc -z db 5432; do
 done
 echo "Database is ready."
 # Run Prisma Migrations and Generate Client
-npx prisma migrate dev --name init
+npx prisma migrate dev --name add-clerkId
 npx prisma migrate deploy
 
 npx prisma generate
