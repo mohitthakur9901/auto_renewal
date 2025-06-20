@@ -10,6 +10,13 @@ const BASE_PATH = '/';
 export const PATH_DASHBOARD = {
     root : ROOTS_DASHBOARD,
     analytics : path(ROOTS_DASHBOARD, '/analytics'),
+    admin : {
+      root : path(ROOTS_DASHBOARD, '/admin'),
+      services : path(ROOTS_DASHBOARD, '/admin/services'),
+      subscriptions : path(ROOTS_DASHBOARD, '/admin/subscriptions'),
+      members : path(ROOTS_DASHBOARD, '/admin/members'),
+      users : path(ROOTS_DASHBOARD, '/admin/users'),
+    },
     members : {
       root : path(ROOTS_DASHBOARD, '/members'),
       list : path(ROOTS_DASHBOARD, '/members/list'),

@@ -1,5 +1,5 @@
 import {
-  totalEmailSent, totalActiveMembers, totalWhatsAppSent, totalInactiveMembers, totalMembers
+  totalEmailSent, totalActiveMembers, totalInactiveMembers, totalMembers
 } from '@/app/actions/dashboard';
 import { Separator } from "@/components/ui/separator"
 import EmailChart from '@/components/blocks/EmailChart'
@@ -7,11 +7,11 @@ import WhatsAppChart from '@/components/blocks/WhatsAppChart';
 import React from 'react'
 
 async function page() {
+  
   const emailData = await totalEmailSent();
   const activeMembers = await totalActiveMembers();
   const inactiveMembers = await totalInactiveMembers();
   const members = await totalMembers();
-  const whatsAppData = await totalWhatsAppSent();
 
 
   return (
@@ -36,6 +36,7 @@ async function page() {
 
 
       <Separator />
+
 
       {/* Email Chart */}
       <div className="email-chart  rounded-xl shadow-sm border p-4">

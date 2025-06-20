@@ -12,7 +12,7 @@ export default clerkMiddleware(async (auth, req) => {
     }
   } else {
     if (userId) {
-      return NextResponse.redirect(new URL("/dashboard", req.url));
+      return NextResponse.redirect(new URL("/dashboard/analytics", req.url));
     }
   }
 

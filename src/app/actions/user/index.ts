@@ -62,6 +62,7 @@ export async function createUser(formData: FormData) {
         upiid: upiid || "",
         qrcode: result.secure_url,
         email: clerkUser.emailAddresses[0].emailAddress,
+        // does not working
         username: clerkUser.firstName + "_" + clerkUser.lastName,
         isDeleted: false,
       },
