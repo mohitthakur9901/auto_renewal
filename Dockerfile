@@ -8,9 +8,11 @@ RUN npm install --legacy-peer-deps
 
 COPY . .
 
-COPY docker-entrypoint.sh .
+RUN npx prisma generate
 
-RUN chmod +x docker-entrypoint.sh
+
+RUN npm run build
+
 
 ARG DATABASE_URL
 
@@ -19,8 +21,7 @@ ENV DATABASE_URL=${DATABASE_URL}
 ENV NODE_ENV=production
 
 
-
 EXPOSE 3000
 
-ENTRYPOINT ["sh", "./docker-entrypoint.sh"]
+CMD ["npm", "run", "start"]
 
