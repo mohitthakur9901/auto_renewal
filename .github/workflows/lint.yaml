@@ -1,0 +1,28 @@
+name: "Linting and formatting on PR"
+
+on:
+  pull_request:
+    branches:
+      - "**"
+
+jobs:
+  Continuous-Integration:
+    name: "Performing linting and formatting"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
+      - name: Check formatting
+        run: npm run format:check
+        
+      - name: Write formatting changes
+        run: npm run format:write

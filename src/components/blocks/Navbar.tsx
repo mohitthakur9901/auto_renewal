@@ -1,8 +1,8 @@
-import { Button } from "@/components/ui/button"
-import { Separator } from "@/components/ui/separator"
-import { SidebarTrigger } from "@/components/ui/sidebar"
-import { ModeToggle } from "./ModeToggle"
-import { SignedIn, UserButton } from "@clerk/nextjs"
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { SidebarTrigger } from "@/components/ui/sidebar";
+import { ModeToggle } from "./ModeToggle";
+import { SignedIn, UserButton } from "@clerk/nextjs";
 
 export function Navbar() {
   return (
@@ -23,5 +23,5 @@ export function Navbar() {
         </div>
       </div>
     </header>
-  )
+  );
 }

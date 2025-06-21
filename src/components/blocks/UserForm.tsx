@@ -1,26 +1,20 @@
-import React from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '../ui/label';
+import React from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "../ui/label";
 
 function UserForm({ action }: { action: (formData: FormData) => void }) {
   return (
     <form
       action={action}
-
       className="max-w-xl mx-auto mt-10  p-6 rounded-2xl shadow-md space-y-6"
     >
       <h2 className="text-2xl font-semibold text-gray-800">Add New User</h2>
 
       <div className="space-y-2">
         <Label htmlFor="qrcode">QR Code</Label>
-        <Input
-          type="file"
-          name="qrcode"
-          accept="image/*"
-          required
-        />
+        <Input type="file" name="qrcode" accept="image/*" required />
       </div>
 
       <div className="space-y-2">

@@ -32,7 +32,6 @@ export interface EmailLog {
   error: string | null;
 }
 
-
 interface EmailLogTableProps {
   emails: EmailLog[];
 }
@@ -72,7 +71,10 @@ const EmailLogTable = ({ emails }: EmailLogTableProps) => {
         <TableBody>
           {filtered.length === 0 ? (
             <TableRow>
-              <TableCell colSpan={4} className="text-center text-muted-foreground">
+              <TableCell
+                colSpan={4}
+                className="text-center text-muted-foreground"
+              >
                 No emails found
               </TableCell>
             </TableRow>
@@ -82,9 +84,13 @@ const EmailLogTable = ({ emails }: EmailLogTableProps) => {
                 <TableCell>{s.to}</TableCell>
                 <TableCell>{s.status}</TableCell>
                 <TableCell>
-                  {new Date(s?.scheduledAt?.toISOString() || "").toLocaleString()}
+                  {new Date(
+                    s?.scheduledAt?.toISOString() || "",
+                  ).toLocaleString()}
                 </TableCell>
-                <TableCell>{new Date(s.sentAt?.toISOString() || "").toLocaleString()}</TableCell>
+                <TableCell>
+                  {new Date(s.sentAt?.toISOString() || "").toLocaleString()}
+                </TableCell>
               </TableRow>
             ))
           )}

@@ -17,14 +17,12 @@ export function SendEmailButton({ memberId }: { memberId: number }) {
           if (!res.success) {
             console.error(res.message);
             toast.error("Failed to send email");
-          }
-          else {
+          } else {
             toast.success("Email sent successfully");
           }
         });
       }}
       disabled={isPending}
-
     >
       {isPending ? "Sending..." : "Send Email"}
     </Button>

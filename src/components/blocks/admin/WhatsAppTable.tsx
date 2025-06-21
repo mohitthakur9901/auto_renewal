@@ -17,7 +17,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import {  MessageStatus } from "@/generated/prisma";
+import { MessageStatus } from "@/generated/prisma";
 
 export interface WhatsAppLog {
   id: number;
@@ -31,7 +31,6 @@ export interface WhatsAppLog {
   createdAt: Date;
   error: string | null;
 }
-
 
 interface WhatsAppLogTableProps {
   whatsapp: WhatsAppLog[];
@@ -72,7 +71,10 @@ const WhatsAppLogTable = ({ whatsapp }: WhatsAppLogTableProps) => {
         <TableBody>
           {filtered.length === 0 ? (
             <TableRow>
-              <TableCell colSpan={4} className="text-center text-muted-foreground">
+              <TableCell
+                colSpan={4}
+                className="text-center text-muted-foreground"
+              >
                 No data found
               </TableCell>
             </TableRow>
@@ -82,9 +84,13 @@ const WhatsAppLogTable = ({ whatsapp }: WhatsAppLogTableProps) => {
                 <TableCell>{s.to}</TableCell>
                 <TableCell>{s.status}</TableCell>
                 <TableCell>
-                  {new Date(s?.scheduledAt?.toISOString() || "").toLocaleString()}
+                  {new Date(
+                    s?.scheduledAt?.toISOString() || "",
+                  ).toLocaleString()}
                 </TableCell>
-                <TableCell>{new Date(s.sentAt?.toISOString() || "").toLocaleString()}</TableCell>
+                <TableCell>
+                  {new Date(s.sentAt?.toISOString() || "").toLocaleString()}
+                </TableCell>
               </TableRow>
             ))
           )}

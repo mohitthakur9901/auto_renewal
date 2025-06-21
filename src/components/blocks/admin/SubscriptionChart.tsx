@@ -22,7 +22,9 @@ const SubscriptionChart: React.FC<SubscriptionChartProps> = ({
 
   return (
     <div className="w-full max-w-md mx-auto bg-muted p-4 rounded-xl shadow-sm">
-      <h3 className="text-xl font-semibold text-center mb-4">Subscriptions Overview</h3>
+      <h3 className="text-xl font-semibold text-center mb-4">
+        Subscriptions Overview
+      </h3>
       <ResponsiveContainer width="100%" height={300}>
         <PieChart>
           <Pie
@@ -32,7 +34,9 @@ const SubscriptionChart: React.FC<SubscriptionChartProps> = ({
             labelLine={false}
             outerRadius={100}
             dataKey="value"
-            label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+            label={({ name, percent }) =>
+              `${name}: ${(percent * 100).toFixed(0)}%`
+            }
           >
             {data.map((entry, index) => (
               <Cell key={entry.name} fill={COLORS[index % COLORS.length]} />

@@ -36,27 +36,21 @@ App Features
 - Twillio Email integration
 - Payment Gateway Integration (Phonepe , Razorpay)
 
-
-
-
 <!-- Email Features -->
-Approach for email workflow 
 
-make an email template 
-make a sendEmail function 
+Approach for email workflow
+
+make an email template
+make a sendEmail function
 make a scheduleEmail function
 fetch emails list from database
 
-
-
-add more data about user 
+add more data about user
 place name
 place address
 social media links
 qr code
 membership plans and their features
-
-
 
 <!-- Email Services -->
 

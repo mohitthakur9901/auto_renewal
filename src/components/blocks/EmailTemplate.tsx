@@ -34,17 +34,14 @@ function EmailTemplate({
           <Section style={section}>
             <Img src={qrCode} style={qrCodeStyle} />
             <Text style={text}>Hi {name},</Text>
-            <Text style={text}>
-              Membership Reminder from {placeName}
-            </Text>
+            <Text style={text}>Membership Reminder from {placeName}</Text>
             <Text style={text}>Address: {address}</Text>
             <Text style={text}>UPI ID: {upiid}</Text>
           </Section>
         </Container>
       </Body>
     </Html>
-
-  )
+  );
 }
 
 const main = {
@@ -82,4 +79,4 @@ const text = {
   margin: "16px 0",
 };
 
-export default EmailTemplate
+export default EmailTemplate;

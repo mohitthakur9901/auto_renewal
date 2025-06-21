@@ -1,6 +1,6 @@
 "use client";
 
-import { useState  } from "react";
+import { useState } from "react";
 import { redirect } from "next/navigation";
 import { createMember } from "@/app/actions/member";
 import { toast } from "sonner";
@@ -22,7 +22,10 @@ export default function MemberPage() {
     setFormValues((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleDateChange = (field: "joiningDate" | "expiryDate", date: Date | undefined) => {
+  const handleDateChange = (
+    field: "joiningDate" | "expiryDate",
+    date: Date | undefined,
+  ) => {
     setFormValues((prev) => ({ ...prev, [field]: date }));
   };
 
@@ -40,7 +43,7 @@ export default function MemberPage() {
     setLoading(true);
     const res = await createMember(formData);
     console.log(res);
-    
+
     setLoading(false);
 
     if (res.success) {

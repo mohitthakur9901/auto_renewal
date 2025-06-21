@@ -1,36 +1,31 @@
-
-
-
-import { currentUser } from '@clerk/nextjs/server'
+import { currentUser } from "@clerk/nextjs/server";
 import client from "@/lib/db";
-import MemberForm from '@/components/blocks/MemberForm';
-import MemberWrapper from '@/components/blocks/MemberWrapper';
+import MemberForm from "@/components/blocks/MemberForm";
+import MemberWrapper from "@/components/blocks/MemberWrapper";
 
 async function page({ params }: { params: { id: string } }) {
-    const id = parseInt(params.id);
-    const clerkUser = await currentUser();
-    if (!clerkUser) {
-        return null
-    }
+  const id = parseInt(params.id);
+  const clerkUser = await currentUser();
+  if (!clerkUser) {
+    return null;
+  }
 
-    const user = await client.user.findFirst({
-        where: {
-            clerkId: clerkUser?.id
-        }
-    })
+  const user = await client.user.findFirst({
+    where: {
+      clerkId: clerkUser?.id,
+    },
+  });
 
-    const members = await client.member.findFirst(({
-        where: {
-            id: id,
-            isDeleted: false
-        }
-    }));
-     if (!members) return <div>Member not found</div>;
+  const members = await client.member.findFirst({
+    where: {
+      id: id,
+      isDeleted: false,
+    },
+  });
+  if (!members) return <div>Member not found</div>;
 
-
-   
-    return (
-     <MemberWrapper
+  return (
+    <MemberWrapper
       id={members.id}
       member={{
         address: members.address,
@@ -41,7 +36,7 @@ async function page({ params }: { params: { id: string } }) {
         phone: members.phone,
       }}
     />
-    )
+  );
 }
 
-export default page
+export default page;

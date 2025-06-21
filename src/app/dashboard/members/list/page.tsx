@@ -7,8 +7,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
-
+} from "@/components/ui/table";
 
 import { currentUser } from "@clerk/nextjs/server";
 import client from "@/lib/db";
@@ -17,26 +16,22 @@ import { MemberStatusSelect } from "@/components/blocks/MemberStatus";
 import DeleteAlert from "@/components/blocks/DeleteAlert";
 import SearchBar from "@/components/blocks/SearchBar";
 async function page() {
-
-
   const clerkUser = await currentUser();
   if (!clerkUser) {
-    return null
+    return null;
   }
 
   const user = await client.user.findFirst({
     where: {
-      clerkId: clerkUser?.id
-    }
-  })
+      clerkId: clerkUser?.id,
+    },
+  });
 
   const members = await client.member.findMany({
     where: {
-      createdBy: user?.id
-    }
-  })
-
-
+      createdBy: user?.id,
+    },
+  });
 
   return (
     <div className="p-4">
@@ -46,7 +41,7 @@ async function page() {
         <TableCaption>All Members</TableCaption>
         <TableHeader>
           <TableRow>
-            <TableHead >Name</TableHead>
+            <TableHead>Name</TableHead>
             <TableHead>Email</TableHead>
             <TableHead>Phone</TableHead>
             <TableHead>Address</TableHead>
@@ -58,13 +53,18 @@ async function page() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {
-            members.filter((member) => !member.isDeleted).map((member) => (
+          {members
+            .filter((member) => !member.isDeleted)
+            .map((member) => (
               <TableRow key={member.id}>
                 <TableCell>{member.name}</TableCell>
-                <TableCell className="max-w-[120px] truncate whitespace-nowrap" >{member.email}</TableCell>
+                <TableCell className="max-w-[120px] truncate whitespace-nowrap">
+                  {member.email}
+                </TableCell>
                 <TableCell>{member.phone}</TableCell>
-                <TableCell className="max-w-[100px] truncate whitespace-nowrap" >{member.address}</TableCell>
+                <TableCell className="max-w-[100px] truncate whitespace-nowrap">
+                  {member.address}
+                </TableCell>
                 <TableCell>
                   {new Date(member.joindate).toISOString().split("T")[0]}
                 </TableCell>
@@ -72,31 +72,35 @@ async function page() {
                   {new Date(member.expirydate).toISOString().split("T")[0]}
                 </TableCell>
                 <TableCell>
-
-                  <MemberStatusSelect currentStatus={member.status} memberId={member.id} />
+                  <MemberStatusSelect
+                    currentStatus={member.status}
+                    memberId={member.id}
+                  />
                 </TableCell>
                 <TableCell>
-                  <Link href={`/dashboard/members/list/${member.id}`} className="bg-blue-400 p-2 rounded-md ">Edit</Link>
+                  <Link
+                    href={`/dashboard/members/list/${member.id}`}
+                    className="bg-blue-400 p-2 rounded-md "
+                  >
+                    Edit
+                  </Link>
                 </TableCell>
                 <TableCell>
-
                   <DeleteAlert memberId={member.id} />
                 </TableCell>
               </TableRow>
-            ))
-
-          }
+            ))}
         </TableBody>
         <TableFooter>
           <TableRow>
             <TableCell colSpan={9}>
-              Total: {members.filter((member) => !member.isDeleted).length} member{members.length !== 1 ? "s" : ""}
+              Total: {members.filter((member) => !member.isDeleted).length}{" "}
+              member{members.length !== 1 ? "s" : ""}
             </TableCell>
           </TableRow>
         </TableFooter>
       </Table>
-    </div >
-  )
-
+    </div>
+  );
 }
-export default page
+export default page;

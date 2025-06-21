@@ -2,11 +2,17 @@
 
 import { useState } from "react";
 import MemberForm from "@/components/blocks/MemberForm";
-import { updateMember } from "@/app/actions/member"; 
+import { updateMember } from "@/app/actions/member";
 import { useRouter } from "next/navigation";
-import { toast } from "sonner"; 
+import { toast } from "sonner";
 
-export default function MemberWrapper({ member, id }: { member: any, id: number }) {
+export default function MemberWrapper({
+  member,
+  id,
+}: {
+  member: any;
+  id: number;
+}) {
   const [formState, setFormState] = useState({
     name: member.name,
     email: member.email,
@@ -18,14 +24,19 @@ export default function MemberWrapper({ member, id }: { member: any, id: number 
 
   const router = useRouter();
 
-  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
+  ) => {
     setFormState((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
     }));
   };
 
-  const handleDateChange = (field: "joiningDate" | "expiryDate", date: Date | undefined) => {
+  const handleDateChange = (
+    field: "joiningDate" | "expiryDate",
+    date: Date | undefined,
+  ) => {
     setFormState((prev) => ({
       ...prev,
       [field]: date ?? new Date(),
@@ -44,14 +55,13 @@ export default function MemberWrapper({ member, id }: { member: any, id: number 
     formData.append("expirydate", formState.expiryDate.toISOString());
 
     const res = await updateMember(formData);
-    if (res?.success ) {
+    if (res?.success) {
       toast.success("Member updated successfully");
-      router.push("/dashboard/members/list"); 
+      router.push("/dashboard/members/list");
     } else {
       toast.error("Failed to update");
     }
   };
-
 
   return (
     <MemberForm

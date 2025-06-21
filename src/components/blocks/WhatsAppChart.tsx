@@ -46,7 +46,9 @@ function WhatsAppChart({ WhatsAppData }: WhatsAppChartProps) {
                 if (active && payload && payload.length) {
                   return (
                     <div className="bg-white border border-gray-200 rounded-md shadow-md px-4 py-2 text-sm">
-                      <p className="font-medium text-gray-900">{payload[0].payload.date}</p>
+                      <p className="font-medium text-gray-900">
+                        {payload[0].payload.date}
+                      </p>
                       <p className="text-muted-foreground">
                         WhatsApp Sent:{" "}
                         <span className="font-semibold text-emerald-600">
@@ -63,7 +65,7 @@ function WhatsAppChart({ WhatsAppData }: WhatsAppChartProps) {
               type="monotone"
               dataKey="whatsAppSent"
               stroke="#10b981" // Tailwind emerald-500
-              fill="#d1fae5"   // Tailwind emerald-100
+              fill="#d1fae5" // Tailwind emerald-100
               strokeWidth={2}
               dot={{ r: 3, stroke: "#10b981", strokeWidth: 2, fill: "#fff" }}
             />

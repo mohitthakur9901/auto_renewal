@@ -1,12 +1,22 @@
 "use client";
 
 import React from "react";
-import { Card, CardContent, CardTitle, CardHeader, CardFooter } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardTitle,
+  CardHeader,
+  CardFooter,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Calendar } from "@/components/ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { ChevronDownIcon } from "lucide-react";
 
 interface MemberRegisterProps {
@@ -20,7 +30,10 @@ interface MemberRegisterProps {
   };
   loading: boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onDateChange: (field: "joiningDate" | "expiryDate", date: Date | undefined) => void;
+  onDateChange: (
+    field: "joiningDate" | "expiryDate",
+    date: Date | undefined,
+  ) => void;
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
@@ -38,7 +51,9 @@ const MemberRegister: React.FC<MemberRegisterProps> = ({
     <div className="max-w-4xl mx-auto p-6">
       <Card className="shadow-lg rounded-2xl border">
         <CardHeader>
-          <CardTitle className="text-2xl font-semibold">New Member Registration</CardTitle>
+          <CardTitle className="text-2xl font-semibold">
+            New Member Registration
+          </CardTitle>
         </CardHeader>
 
         <form onSubmit={onSubmit}>
@@ -108,7 +123,10 @@ const MemberRegister: React.FC<MemberRegisterProps> = ({
                       <ChevronDownIcon />
                     </Button>
                   </PopoverTrigger>
-                  <PopoverContent className="w-auto overflow-hidden p-0" align="start">
+                  <PopoverContent
+                    className="w-auto overflow-hidden p-0"
+                    align="start"
+                  >
                     <Calendar
                       mode="single"
                       selected={values.joiningDate}
@@ -136,7 +154,10 @@ const MemberRegister: React.FC<MemberRegisterProps> = ({
                       <ChevronDownIcon />
                     </Button>
                   </PopoverTrigger>
-                  <PopoverContent className="w-auto overflow-hidden p-0" align="start">
+                  <PopoverContent
+                    className="w-auto overflow-hidden p-0"
+                    align="start"
+                  >
                     <Calendar
                       mode="single"
                       selected={values.expiryDate}

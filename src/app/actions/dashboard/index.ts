@@ -120,7 +120,6 @@ export async function totalActiveMembers() {
       },
     });
 
-
     const members = await client.member.count({
       where: {
         createdBy: user?.id,
@@ -220,4 +219,3 @@ export async function totalMembers() {
     };
   }
 }
-

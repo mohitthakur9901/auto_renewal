@@ -1,7 +1,5 @@
-
 import EmailTemplate from "@/components/blocks/EmailTemplate";
-import {Resend} from "resend";
-
+import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -17,12 +15,15 @@ interface SendMailProps {
   };
 }
 
-export async  function sendEmail({ to, from, dynamicTemplateData }: SendMailProps) {
-    
-    await resend.emails.send({
-        from: from,
-        to: to,
-        subject: `Hi ${dynamicTemplateData.name}, membership reminder from ${dynamicTemplateData.placeName}`,
-        react: EmailTemplate(dynamicTemplateData) ,
-    })
+export async function sendEmail({
+  to,
+  from,
+  dynamicTemplateData,
+}: SendMailProps) {
+  await resend.emails.send({
+    from: from,
+    to: to,
+    subject: `Hi ${dynamicTemplateData.name}, membership reminder from ${dynamicTemplateData.placeName}`,
+    react: EmailTemplate(dynamicTemplateData),
+  });
 }

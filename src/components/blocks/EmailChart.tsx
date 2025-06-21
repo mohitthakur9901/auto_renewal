@@ -65,7 +65,7 @@ export default function EmailChart({ EmailData }: any) {
               type="monotone"
               dataKey="emailsSent"
               stroke="#4f46e5" // Tailwind indigo-600
-              fill="#e0e7ff"   // Tailwind indigo-100
+              fill="#e0e7ff" // Tailwind indigo-100
               strokeWidth={2}
               dot={{ r: 3, stroke: "#4f46e5", strokeWidth: 2, fill: "#fff" }}
             />

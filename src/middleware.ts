@@ -16,7 +16,7 @@ export default clerkMiddleware(async (auth, req) => {
     }
   }
 
-  return NextResponse.next(); 
+  return NextResponse.next();
 });
 
 export const config = {
@@ -25,4 +25,3 @@ export const config = {
     "/(api|trpc)(.*)",
   ],
 };
-

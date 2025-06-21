@@ -42,10 +42,10 @@ export async function createUser(formData: FormData) {
           (error, result) => {
             if (error) reject(error);
             else resolve(result as CloudinaryReturnResponse);
-          }
+          },
         );
         uploadStream.end(buffer);
-      }
+      },
     );
 
     if (!result) {

@@ -7,13 +7,13 @@ import Testimonials from "@/components/testimonials";
 
 export default function Home() {
   return (
-   <>
-   <HeroSection/>
-   <FeaturesSection/>
-   <ContentSection/>
-   <Testimonials/>
-   <StatsSection/>
-   <FAQs/>
-   </>
+    <>
+      <HeroSection />
+      <FeaturesSection />
+      <ContentSection />
+      <Testimonials />
+      <StatsSection />
+      <FAQs />
+    </>
   );
 }

@@ -1,9 +1,8 @@
-import { getAllUsers } from '@/app/actions/admin';
-import UserTable from '@/components/blocks/admin/Usertable'
-import React from 'react'
+import { getAllUsers } from "@/app/actions/admin";
+import UserTable from "@/components/blocks/admin/Usertable";
+import React from "react";
 
 async function page() {
-
   const users = await getAllUsers();
 
   return (
@@ -11,7 +10,7 @@ async function page() {
       <p>All Users</p>
       <UserTable users={users} />
     </div>
-  )
+  );
 }
 
-export default page
+export default page;

@@ -1,6 +1,6 @@
-import { getAllSubscriptions } from '@/app/actions/admin';
-import SubscriptionTable from '@/components/blocks/admin/Susbcriptiontable'
-import React from 'react'
+import { getAllSubscriptions } from "@/app/actions/admin";
+import SubscriptionTable from "@/components/blocks/admin/Susbcriptiontable";
+import React from "react";
 
 async function page() {
   const subscriptions = await getAllSubscriptions();
@@ -8,7 +8,7 @@ async function page() {
     <div className="all-subscriptions">
       <SubscriptionTable subscriptions={subscriptions} />
     </div>
-  )
+  );
 }
 
-export default page
+export default page;

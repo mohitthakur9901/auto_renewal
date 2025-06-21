@@ -49,7 +49,7 @@ export async function sendEmailToMembers() {
     }
 
     const activeMembers = user.members.filter(
-      (member) => member.status === "ACTIVE"
+      (member) => member.status === "ACTIVE",
     );
 
     const emailSentToMembers = activeMembers.map((member) => {
@@ -119,7 +119,7 @@ export async function sendEmailtoMember(memberId: number) {
     }
 
     const member = user.members.find(
-      (member) => member.id === Number(memberId) && member.status === "ACTIVE"
+      (member) => member.id === Number(memberId) && member.status === "ACTIVE",
     );
 
     if (!member) {

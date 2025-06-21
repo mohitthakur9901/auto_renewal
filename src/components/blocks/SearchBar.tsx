@@ -6,8 +6,7 @@ import debounce from "lodash/debounce";
 import { searchMember } from "@/app/actions/member";
 
 function SearchBar() {
-
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [results, setResults] = useState<any[]>([]);
 
   const handleSearch = useCallback(
@@ -16,17 +15,16 @@ function SearchBar() {
 
       const response = await searchMember(search);
       if (response.success) {
-        // list data 
+        // list data
         response.data?.map((item: any) => {
           setResults((prevResults) => [...prevResults, item]);
-        })
+        });
       } else {
-        console.log(response.message)
+        console.log(response.message);
       }
-    }, 500), [
-    setResults
-  ]
-  )
+    }, 500),
+    [setResults],
+  );
 
   useEffect(() => {
     if (searchTerm.trim()) {
@@ -52,14 +50,15 @@ function SearchBar() {
           <ul className="space-y-1 text-sm">
             {results.map((member) => (
               <li key={member.id} className="border-b pb-1">
-                <span className="font-medium">{member.name}</span> — {member.email} / {member.phone}
+                <span className="font-medium">{member.name}</span> —{" "}
+                {member.email} / {member.phone}
               </li>
             ))}
           </ul>
         </div>
       )}
     </div>
-  )
+  );
 }
 
-export default SearchBar
+export default SearchBar;

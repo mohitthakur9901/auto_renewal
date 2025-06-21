@@ -7,8 +7,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
-
+} from "@/components/ui/table";
 
 import { currentUser } from "@clerk/nextjs/server";
 import client from "@/lib/db";
@@ -18,24 +17,22 @@ import { sendEmailtoMember } from "@/app/actions/services";
 import { SendEmailButton } from "@/components/blocks/EmailButton";
 
 async function page() {
-
-
   const clerkUser = await currentUser();
   if (!clerkUser) {
-    return null
+    return null;
   }
 
   const user = await client.user.findFirst({
     where: {
-      clerkId: clerkUser?.id
-    }
-  })
+      clerkId: clerkUser?.id,
+    },
+  });
 
   const members = await client.member.findMany({
     where: {
-      createdBy: user?.id
-    }
-  })
+      createdBy: user?.id,
+    },
+  });
   return (
     <div className="p-4">
       <Table>
@@ -56,7 +53,9 @@ async function page() {
               <TableCell className="font-medium">{member.name}</TableCell>
               <TableCell>{member.email}</TableCell>
               <TableCell>{member.phone}</TableCell>
-              <TableCell className="max-w-[120px] truncate whitespace-nowrap">{member.address}</TableCell>
+              <TableCell className="max-w-[120px] truncate whitespace-nowrap">
+                {member.address}
+              </TableCell>
               <TableCell>{member.status}</TableCell>
               <TableCell>
                 {/*  button  */}
@@ -67,7 +66,7 @@ async function page() {
         </TableBody>
       </Table>
     </div>
-  )
+  );
 }
 
-export default page
+export default page;
