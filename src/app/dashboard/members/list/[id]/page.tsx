@@ -1,10 +1,9 @@
 import { currentUser } from "@clerk/nextjs/server";
 import client from "@/lib/db";
 import MemberWrapper from "@/components/blocks/MemberWrapper";
-type Params = Promise<{ id: number }>
+type Params = Promise<{ id: number }>;
 
 export default async function Page({ params }: { params: Params }) {
-
   const { id } = await params;
   if (isNaN(id)) return <div>Invalid ID</div>;
 
@@ -41,5 +40,3 @@ export default async function Page({ params }: { params: Params }) {
     />
   );
 }
-
-

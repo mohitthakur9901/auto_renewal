@@ -32,4 +32,3 @@ jobs:
           tags: mohitthakur9901/auto_renewal:latest
           build-args: |
             DATABASE_URL=${{ secrets.DATABASE_URL }}
-
