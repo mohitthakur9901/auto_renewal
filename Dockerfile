@@ -4,6 +4,8 @@ WORKDIR /app
 
 COPY package*.json ./
 
+COPY .env.production .env.production
+
 RUN npm install --legacy-peer-deps
 
 COPY . .
