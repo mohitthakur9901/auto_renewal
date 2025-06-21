@@ -1,8 +1,16 @@
 import EmailTemplate from "@/components/blocks/EmailTemplate";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY!);
+let resend: Resend | null = null;
 
+function getResendClient() {
+  if (!resend) {
+    const key = process.env.RESEND_API_KEY;
+    if (!key) throw new Error("Missing RESEND_API_KEY");
+    resend = new Resend(key);
+  }
+  return resend;
+}
 interface SendMailProps {
   to: string;
   from: string;
@@ -20,6 +28,7 @@ export async function sendEmail({
   from,
   dynamicTemplateData,
 }: SendMailProps) {
+  const resend = getResendClient();
   await resend.emails.send({
     from: from,
     to: to,
