@@ -43,6 +43,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           script: |
+            docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
             docker pull mohitthakur9901/auto_renewal:latest
             docker stop auto_renewal || true
             docker rm auto_renewal || true
