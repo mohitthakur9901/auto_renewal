@@ -95,7 +95,7 @@ export async function TotalInactiveMembers() {
 export async function TotalInactiveUsers() {
   const users = await client.user.count({
     where: {
-      isDeleted: false,
+      isDeleted: true,
     },
   });
   return users;

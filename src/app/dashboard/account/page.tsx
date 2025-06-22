@@ -19,23 +19,25 @@ async function page() {
   const { clerkUser, email, phone, upiid, address, placeName, qrcode } = data;
 
   return (
-    <div className="max-w-2xl mx-auto mt-5  p-2 rounded-2xl shadow-md space-y-6 flex ">
-      <div className="">
-        <h1 className="text-3xl font-bold text-gray-800">
+    <div className="max-w-4xl mx-auto mt-8 p-6 rounded-2xl shadow-lg bg-white space-y-6 md:space-y-0 flex flex-col md:flex-row md:gap-8">
+      <div className="flex-1 space-y-4">
+        <h1 className="text-2xl md:text-3xl font-bold text-gray-800">
           Welcome {clerkUser?.firstName}
         </h1>
+
         {clerkUser && (
           <div>
             <Image
               src={clerkUser.imageUrl}
-              alt="User QR Code"
-              width={250}
-              height={400}
-              className="rounded-lg border"
+              alt="User Profile"
+              width={200}
+              height={200}
+              className="rounded-lg border w-full max-w-[200px] object-cover"
             />
           </div>
         )}
-        <div className="space-y-2">
+
+        <div className="space-y-2 text-sm text-gray-700">
           <p>
             <strong>Name:</strong> {clerkUser.firstName} {clerkUser.lastName}
           </p>
@@ -56,22 +58,21 @@ async function page() {
           </p>
         </div>
       </div>
-      {qrcode && (
-        <div>
-          <p>
-            <strong>QR Code:</strong>
-          </p>
 
+      {qrcode && (
+        <div className="flex-1 space-y-2 text-sm text-gray-700">
+          <p className="font-semibold text-lg">QR Code:</p>
           <Image
             src={qrcode}
             alt="User QR Code"
-            width={250}
-            height={400}
-            className="rounded-lg border"
+            width={300}
+            height={300}
+            className="rounded-lg border w-full max-w-[300px] object-contain"
           />
         </div>
       )}
     </div>
+
   );
 }
 

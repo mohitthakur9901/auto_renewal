@@ -15,6 +15,7 @@ export default [
       // Add any custom rules here
       "@typescript-eslint/no-unused-vars": "warn",
       "@typescript-eslint/no-unused-expressions": "warn",
+      
     },
   },
 ];

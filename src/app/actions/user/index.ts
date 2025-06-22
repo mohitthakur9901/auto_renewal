@@ -63,7 +63,7 @@ export async function createUser(formData: FormData) {
         qrcode: result.secure_url,
         email: clerkUser.emailAddresses[0].emailAddress,
         // does not working
-        username: clerkUser.firstName + "_" + clerkUser.lastName,
+        username: clerkUser?.firstName || "",
         isDeleted: false,
       },
     });
