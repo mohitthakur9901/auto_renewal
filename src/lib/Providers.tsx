@@ -14,8 +14,13 @@ export default function Provider({
   children: React.ReactNode;
 }>) {
   const pathname = usePathname();
+  const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY!;
+  
+if (!publishableKey) {
+  throw new Error("Missing NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY");
+}
   return (
-    <ClerkProvider>
+    <ClerkProvider publishableKey={publishableKey}>
       <NextThemesProvider
         attribute="class"
         defaultTheme="system"

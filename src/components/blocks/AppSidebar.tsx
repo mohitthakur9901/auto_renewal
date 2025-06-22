@@ -103,7 +103,12 @@ async function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         },
       ],
     },
-  ].filter(Boolean);
+  ].filter((route) => {
+    if (route.title === "Admin" && !isAdmin) {
+      return false;
+    }
+    return true;
+  });
 
   return (
     <Sidebar>
