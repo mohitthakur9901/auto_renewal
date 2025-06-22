@@ -72,7 +72,6 @@ async function page() {
         </div>
       )}
     </div>
-
   );
 }
 
