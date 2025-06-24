@@ -3,7 +3,10 @@
 import client from "@/lib/db";
 import { sendEmail } from "@/lib/email/resend";
 import { currentUser } from "@clerk/nextjs/server";
+import nodeCron from "node-cron";
 
+
+nodeCron
 export async function sendEmailToMembers() {
   try {
     const clerkUser = await currentUser();
@@ -62,6 +65,7 @@ export async function sendEmailToMembers() {
           placeName: user.placeName,
           upiid: user.upiid,
           name: member.name,
+          expirydate : member.expirydate
         },
       });
     });
@@ -138,6 +142,7 @@ export async function sendEmailtoMember(memberId: number) {
         placeName: user.placeName,
         upiid: user.upiid,
         name: member.name,
+        expirydate : member.expirydate
       },
     });
 

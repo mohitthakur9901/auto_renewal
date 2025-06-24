@@ -16,6 +16,7 @@ interface EmailProps {
   name: string;
   placeName?: string;
   upiid?: string;
+  expirydate : Date
 }
 
 function EmailTemplate({
@@ -24,6 +25,8 @@ function EmailTemplate({
   name,
   placeName,
   upiid,
+  expirydate
+
 }: EmailProps) {
   return (
     <Html>
@@ -35,6 +38,7 @@ function EmailTemplate({
             <Img src={qrCode} style={qrCodeStyle} />
             <Text style={text}>Hi {name},</Text>
             <Text style={text}>Membership Reminder from {placeName}</Text>
+            <Text style={text}>Expiry Date: {expirydate.toISOString()}</Text>
             <Text style={text}>Address: {address}</Text>
             <Text style={text}>UPI ID: {upiid}</Text>
           </Section>

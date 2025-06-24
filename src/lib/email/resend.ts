@@ -20,6 +20,7 @@ interface SendMailProps {
     name: string;
     placeName?: string;
     upiid?: string;
+    expirydate : Date
   };
 }
 

@@ -1,11 +1,11 @@
-Analytics Dashboard features
+Analytics Dashboard features 
 
 - Total Number of Members
 - Total Number of Active Members
 - Total Number of Inactive Members
 - Total Number of Pending Members
 
-WhatsApp Sms Features
+WhatsApp Sms Features 
 
 - Total Number of Sent Messages
 - Upcoming Scheduled Messages
@@ -17,7 +17,7 @@ Email Features
 - Upcoming Scheduled Emails
 - Previous Sent Emails
 
-Backend Logics
+Backend Logics 
 
 - Automation for Sending Whatsapp Messages
 - Automation for Sending Emails
