@@ -8,9 +8,6 @@ export default [
   ...tseslint.configs.recommended,
   next,
   {
-    ignores: ["node_modules", ".next", "dist", "src/generated"],
-  },
-  {
     rules: {
       // Add any custom rules here
       "@typescript-eslint/no-unused-vars": "warn",

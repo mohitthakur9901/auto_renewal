@@ -9,6 +9,7 @@ import {
   Mail,
   MessageCircle,
   User,
+  Shell,
 } from "lucide-react";
 import {
   Sidebar,
@@ -120,6 +121,7 @@ async function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <Link href={PATH_DASHBOARD.analytics} className="flex items-center uppercase justify-center font-mono font-extrabold h-30">
          
           Auto Renewally
+           <Shell className=":hover:text-accent-foreground size-6  " />
         </Link>
       </SidebarHeader>
       <SidebarContent className="gap-0">
