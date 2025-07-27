@@ -26,7 +26,7 @@ interface EmailChartProps {
   }[];
 }
 
-export default function EmailChart({ EmailData }: any) {
+export default function EmailChart({ EmailData }: EmailChartProps ) {
   return (
     <Card className="w-full shadow-sm border border-muted">
       <CardHeader className="pb-2">

@@ -3,7 +3,17 @@ import client from "@/lib/db";
 import { currentUser } from "@clerk/nextjs/server";
 import { startOfToday, startOfYesterday } from "date-fns";
 
-export async function totalEmailSent() {
+
+type EmailSentData = {
+  date: string;
+  emailsSent: number; 
+};
+
+type EmailSentResponse =
+  | { success: true; message: string; data: EmailSentData[] }
+  | { success: false; message: string; error?: unknown };
+
+export async function totalEmailSent(): Promise<EmailSentResponse> {
   try {
     const clerkUser = await currentUser();
 
@@ -30,6 +40,7 @@ export async function totalEmailSent() {
         },
       },
     });
+
     const yesterday = await client.emailLog.findMany({
       where: {
         userId: user?.id,
@@ -47,11 +58,11 @@ export async function totalEmailSent() {
       data: [
         {
           date: "Today",
-          emailSent: todayEmails.length,
+          emailsSent: todayEmails.length, // ✅ renamed
         },
         {
           date: "Yesterday",
-          emailSent: yesterday.length,
+          emailsSent: yesterday.length, // ✅ renamed
         },
       ],
     };
@@ -63,44 +74,7 @@ export async function totalEmailSent() {
     };
   }
 }
-export async function totalWhatsAppSent() {
-  try {
-    const clerkUser = await currentUser();
 
-    if (!clerkUser) {
-      return {
-        success: false,
-        message: "User not authenticated",
-      };
-    }
-
-    const user = await client.user.findFirst({
-      where: {
-        clerkId: clerkUser.id,
-        isDeleted: false,
-      },
-    });
-
-    const whatsAppLog = await client.whatsAppLog.findMany({
-      where: {
-        userId: user?.id,
-        status: "SENT",
-      },
-    });
-
-    return {
-      success: true,
-      message: "Email logs fetched successfully",
-      data: whatsAppLog,
-    };
-  } catch (error) {
-    return {
-      success: false,
-      message: "Something went wrong",
-      error,
-    };
-  }
-}
 
 export async function totalActiveMembers() {
   try {

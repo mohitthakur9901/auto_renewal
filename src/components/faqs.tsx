@@ -9,62 +9,61 @@ export default function FAQs() {
               <br className="hidden lg:block" />
               Questions
             </h2>
-            <p>Accusantium quisquam. Illo, omnis?</p>
+            <p>Your top questions answered. Still curious? Reach out to our team.</p>
           </div>
 
           <div className="divide-y divide-dashed sm:mx-auto sm:max-w-lg lg:mx-0">
             <div className="pb-6">
-              <h3 className="font-medium">What is the refund policy?</h3>
+              <h3 className="font-medium">What is your refund policy?</h3>
               <p className="text-muted-foreground mt-4">
-                We offer a 30-day money back guarantee. If you are not satisfied
-                with our product, you can request a refund within 30 days of
-                your purchase.
+                We offer a 30-day money-back guarantee. If you're not fully
+                satisfied with your membership, request a refund within 30 days
+                of purchase.
               </p>
-
               <ol className="list-outside list-decimal space-y-2 pl-4">
-                <li className="text-muted-foreground mt-4">
-                  To request a refund, please contact our support team with your
-                  order number and reason for the refund.
+                <li className="text-muted-foreground">
+                  Contact support with your account email and reason for refund.
                 </li>
-                <li className="text-muted-foreground mt-4">
-                  Refunds will be processed within 3-5 business days.
+                <li className="text-muted-foreground">
+                  Refunds are processed within 3–5 business days.
                 </li>
-                <li className="text-muted-foreground mt-4">
-                  Please note that refunds are only available for new customers
-                  and are limited to one per customer.
+                <li className="text-muted-foreground">
+                  Refunds are only available for new users and limited to one
+                  per account.
                 </li>
               </ol>
             </div>
+
             <div className="py-6">
               <h3 className="font-medium">How do I cancel my subscription?</h3>
               <p className="text-muted-foreground mt-4">
-                You can cancel your subscription at any time by logging into
-                your account and clicking on the cancel button.
+                Log into your dashboard, navigate to “Billing,” and click
+                “Cancel Subscription.” Your access will remain active until the
+                end of the billing period.
               </p>
             </div>
+
             <div className="py-6">
-              <h3 className="font-medium">Can I upgrade my plan?</h3>
+              <h3 className="font-medium">Can I upgrade or downgrade my plan?</h3>
               <p className="text-muted-foreground my-4">
-                Yes, you can upgrade your plan at any time by logging into your
-                account and selecting the plan you want to upgrade to.
+                Yes, plan changes can be made at any time through your account
+                settings.
               </p>
               <ul className="list-outside list-disc space-y-2 pl-4">
                 <li className="text-muted-foreground">
-                  You will be charged the difference in price between your
-                  current plan and the plan you are upgrading to.
+                  Upgrades take effect immediately and are pro-rated.
                 </li>
                 <li className="text-muted-foreground">
-                  Your new plan will take effect immediately and you will be
-                  billed at the new rate on your next billing cycle.
+                  Downgrades are applied at the end of your current billing cycle.
                 </li>
               </ul>
             </div>
+
             <div className="py-6">
-              <h3 className="font-medium">Do you offer phone support?</h3>
+              <h3 className="font-medium">Is phone support available?</h3>
               <p className="text-muted-foreground mt-4">
-                We do not offer phone support at this time. However, you can
-                contact us via email or live chat for any questions or concerns
-                you may have.
+                We currently offer support via email and live chat. Our team
+                typically responds within 24 hours on weekdays.
               </p>
             </div>
           </div>

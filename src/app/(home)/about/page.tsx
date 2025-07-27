@@ -3,27 +3,20 @@ import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
-function page() {
+function Page() {
   return (
     <section className="py-16 md:py-32">
       <div className="mx-auto max-w-5xl px-6">
         <div className="grid gap-6 md:grid-cols-2 md:gap-12">
           <h2 className="text-4xl font-medium">
-            The Lyra ecosystem brings together our models, products and
-            platforms.
+            Simplify and automate your recurring membership management.
           </h2>
-          <div className="space-y-6">
+          <div className="space-y-6 max-w-prose">
             <p>
-              Lyra is evolving to be more than just the models. It supports an
-              entire ecosystem — from products to the APIs and platforms helping
-              developers and businesses innovate.
+              Tailark is built for creators, gym owners, clubs, and community builders who rely on recurring payments. Manage your members, automate renewals, and never miss a payment again.
             </p>
             <p>
-              Tailark.{" "}
-              <span className="font-bold">It supports an entire ecosystem</span>{" "}
-              — from products innovate. Sit minus, quod debitis autem quia
-              aspernatur delectus impedit modi, neque non id ad dignissimos?
-              Saepe deleniti perferendis beatae.
+              <span className="font-bold">Send smart alerts and reminders</span> to keep members engaged and informed. Tailark helps you focus on growth — while we handle the operations.
             </p>
             <Button
               asChild
@@ -33,7 +26,7 @@ function page() {
             >
               <Link href="#">
                 <span>Learn More</span>
-                <ChevronRight className="size-2" />
+                <ChevronRight className="h-4 w-4" />
               </Link>
             </Button>
           </div>
@@ -43,4 +36,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

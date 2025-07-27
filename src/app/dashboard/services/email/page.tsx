@@ -3,18 +3,14 @@ import {
   TableBody,
   TableCaption,
   TableCell,
-  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-
 import { currentUser } from "@clerk/nextjs/server";
 import client from "@/lib/db";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { sendEmailtoMember } from "@/app/actions/services";
 import { SendEmailButton } from "@/components/blocks/EmailButton";
+import { SendWhatsButton } from "@/components/blocks/WhatsAppButton";
 
 async function page() {
   const clerkUser = await currentUser();
@@ -31,10 +27,18 @@ async function page() {
   const members = await client.member.findMany({
     where: {
       createdBy: user?.id,
-    },
+      EmailLog:{
+        none:{
+          status:"SENT"
+        }
+      }
+    }
+
   });
   return (
     <div className="p-4">
+
+      {/*  */}
       <Table>
         <TableCaption>Send Email to Members</TableCaption>
         <TableHeader>
@@ -44,7 +48,8 @@ async function page() {
             <TableHead className="w-[100px]">Phone</TableHead>
             <TableHead className="w-[100px]">Address</TableHead>
             <TableHead className="w-[100px]">Status</TableHead>
-            <TableHead className="w-[100px]"></TableHead>
+            <TableHead className="w-[100px]">Action </TableHead>
+            <TableHead className="w-[100px]">Action </TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -60,6 +65,10 @@ async function page() {
               <TableCell>
                 {/*  button  */}
                 <SendEmailButton memberId={member.id} />
+              </TableCell>
+              <TableCell>
+                {/*  button  */}
+                <SendWhatsButton memberId={member.id} />
               </TableCell>
             </TableRow>
           ))}

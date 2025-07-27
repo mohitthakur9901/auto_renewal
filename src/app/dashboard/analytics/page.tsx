@@ -10,10 +10,14 @@ import WhatsAppChart from "@/components/blocks/WhatsAppChart";
 import React from "react";
 
 async function page() {
-  const emailData = await totalEmailSent();
+
+
   const activeMembers = await totalActiveMembers();
   const inactiveMembers = await totalInactiveMembers();
   const members = await totalMembers();
+  const res = await totalEmailSent();
+  const emailData = res.success ? res.data : [];
+
 
   return (
     <div className="p-4 space-y-6">
@@ -45,6 +49,7 @@ async function page() {
 
       {/* Email Chart */}
       <div className="email-chart  rounded-xl shadow-sm border p-4">
+
         <EmailChart EmailData={emailData} />
       </div>
 

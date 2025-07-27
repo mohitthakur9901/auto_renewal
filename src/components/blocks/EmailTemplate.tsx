@@ -7,6 +7,8 @@ import {
   Section,
   Img,
   Text,
+  Link,
+  Button,
 } from "@react-email/components";
 import * as React from "react";
 
@@ -16,7 +18,7 @@ interface EmailProps {
   name: string;
   placeName?: string;
   upiid?: string;
-  expirydate : Date
+  expirydate: Date
 }
 
 function EmailTemplate({
@@ -36,11 +38,24 @@ function EmailTemplate({
         <Container style={container}>
           <Section style={section}>
             <Img src={qrCode} style={qrCodeStyle} />
-            <Text style={text}>Hi {name},</Text>
-            <Text style={text}>Membership Reminder from {placeName}</Text>
-            <Text style={text}>Expiry Date: {expirydate.toISOString()}</Text>
+            <Text style={text}>Hi There {name},</Text>
+            <Text style={text}>Your Membership Reminder from {placeName}</Text>
+            <Text style={text}>Your Membership Expiry Date: {expirydate.toISOString()}</Text>
             <Text style={text}>Address: {address}</Text>
-            <Text style={text}>UPI ID: {upiid}</Text>
+            <Text style={text}>
+              You can pay your renewal directly using the UPI ID :
+            </Text>
+            {/* <Button
+              href={`http://localhost:3000/pay?pa=${upiid}`}
+            >
+              Click here to pay via UPI (opens GPay, PhonePe, etc.)
+            </Button>
+            <Text style={text}>
+              (Works on Google Pay, PhonePe, Paytm, etc.)
+            </Text> */}
+            <Text style={text}>
+              You can also pay via UPI ID : {upiid}
+            </Text>
           </Section>
         </Container>
       </Body>

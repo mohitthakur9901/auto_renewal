@@ -31,7 +31,7 @@ import {
 } from "@/components/ui/collapsible";
 import Link from "next/link";
 import { PATH_DASHBOARD } from "@/routes";
-import { Logo } from "../logo";
+// import { Logo } from "../logo";
 import { IsAdmin } from "@/app/actions/admin";
 async function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const isAdmin = await IsAdmin();
@@ -69,7 +69,11 @@ async function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           path: PATH_DASHBOARD.members.list,
           icon: SquareUser,
         },
+        {
+          title: "Alerted Members" , path: PATH_DASHBOARD.members.email, icon: Mail
+        },
         { title: "New Member", path: PATH_DASHBOARD.members.new, icon: Plus },
+        
       ],
     },
     {
@@ -113,8 +117,9 @@ async function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar>
       <SidebarHeader>
-        <Link href={PATH_DASHBOARD.analytics}>
-          <Logo className="h-10" />
+        <Link href={PATH_DASHBOARD.analytics} className="flex items-center uppercase justify-center font-mono font-extrabold h-30">
+         
+          Auto Renewally
         </Link>
       </SidebarHeader>
       <SidebarContent className="gap-0">

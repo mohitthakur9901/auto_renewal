@@ -10,129 +10,92 @@ import {
 } from "@/components/ui/card";
 import { Check } from "lucide-react";
 
-function page() {
+function Page() {
   return (
-    <section className="py-16 md:py-32">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="mx-auto max-w-2xl space-y-6 text-center">
-          <h1 className="text-center text-4xl font-semibold lg:text-5xl">
-            Pricing that Scales with You
+    <section className="py-12 sm:py-20 md:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="mx-auto max-w-2xl text-center space-y-4">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight">
+            Pricing that Grows with Your Community
           </h1>
-          <p>
-            Gemini is evolving to be more than just the models. It supports an
-            entire to the APIs and platforms helping developers and businesses
-            innovate.
+          <p className="text-muted-foreground text-base sm:text-lg">
+            Built for membership platforms that need email + WhatsApp messaging, automation, and visibility.
           </p>
         </div>
 
-        <div className="mt-8 grid gap-6 [--color-card:var(--color-muted)] *:border-none *:shadow-none md:mt-20 md:grid-cols-3 dark:[--color-muted:var(--color-zinc-900)]">
+        {/* Pricing Cards */}
+        <div className="mt-12 grid grid-cols-1 gap-8 sm:gap-10 md:grid-cols-2">
+          {/* Growth Plan */}
           <Card className="flex flex-col">
             <CardHeader>
-              <CardTitle className="font-medium">Basic</CardTitle>
-              <span className="my-3 block text-2xl font-semibold">$5 / mo</span>
-              <CardDescription className="text-sm">Per editor</CardDescription>
+              <CardTitle className="text-xl sm:text-2xl font-medium">Growth</CardTitle>
+              <span className="my-3 block text-2xl sm:text-3xl font-semibold text-primary">
+                ₹1500 / mo
+              </span>
+              <CardDescription className="text-sm sm:text-base">
+                For teams managing up to 200 members
+              </CardDescription>
             </CardHeader>
-
             <CardContent className="space-y-4">
               <hr className="border-dashed" />
-
-              <ul className="list-outside space-y-3 text-sm">
+              <ul className="space-y-3 text-sm sm:text-base">
                 {[
+                  "Up to 7 Admins",
+                  "Track up to 500 Members",
+                  "200 Emails / mo",
+                  "200 WhatsApp Messages / mo",
+                  "Automated Reminders & Alerts",
                   "Basic Analytics Dashboard",
-                  "5GB Cloud Storage",
-                  "Email and Chat Support",
-                ].map((item, index) => (
-                  <li key={index} className="flex items-center gap-2">
-                    <Check className="size-3" />
+                  "Email & Chat Support",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-2">
+                    <Check className="h-4 w-4 text-green-600" />
                     {item}
                   </li>
                 ))}
               </ul>
             </CardContent>
-
             <CardFooter className="mt-auto">
-              <Button asChild variant="outline" className="w-full">
-                <Link href="">Get Started</Link>
+              <Button asChild className="w-full">
+                <Link href="#">Get Started</Link>
               </Button>
             </CardFooter>
           </Card>
 
-          <Card className="relative">
-            <span className="bg-linear-to-br/increasing absolute inset-x-0 -top-3 mx-auto flex h-6 w-fit items-center rounded-full from-purple-400 to-amber-300 px-3 py-1 text-xs font-medium text-amber-950 ring-1 ring-inset ring-white/20 ring-offset-1 ring-offset-gray-950/5">
-              Popular
-            </span>
-
-            <div className="flex flex-col">
-              <CardHeader>
-                <CardTitle className="font-medium">Pro</CardTitle>
-                <span className="my-3 block text-2xl font-semibold">
-                  $19 / mo
-                </span>
-                <CardDescription className="text-sm">
-                  Per editor
-                </CardDescription>
-              </CardHeader>
-
-              <CardContent className="space-y-4">
-                <hr className="border-dashed" />
-                <ul className="list-outside space-y-3 text-sm">
-                  {[
-                    "Everything in Free Plan",
-                    "5GB Cloud Storage",
-                    "Email and Chat Support",
-                    "Access to Community Forum",
-                    "Single User Access",
-                    "Access to Basic Templates",
-                    "Mobile App Access",
-                    "1 Custom Report Per Month",
-                    "Monthly Product Updates",
-                    "Standard Security Features",
-                  ].map((item, index) => (
-                    <li key={index} className="flex items-center gap-2">
-                      <Check className="size-3" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-
-              <CardFooter>
-                <Button asChild className="w-full">
-                  <Link href="">Get Started</Link>
-                </Button>
-              </CardFooter>
-            </div>
-          </Card>
-
-          <Card className="flex flex-col">
+          {/* Scale Plan */}
+          <Card className="flex flex-col border border-primary shadow-md">
             <CardHeader>
-              <CardTitle className="font-medium">Enterprise</CardTitle>
-              <span className="my-3 block text-2xl font-semibold">
-                $29 / mo
+              <CardTitle className="text-xl sm:text-2xl font-medium">Scale</CardTitle>
+              <span className="my-3 block text-2xl sm:text-3xl font-semibold text-primary">
+                ₹4000 / mo
               </span>
-              <CardDescription className="text-sm"></CardDescription>
+              <CardDescription className="text-sm sm:text-base">
+                Best for larger teams with high-volume messaging
+              </CardDescription>
             </CardHeader>
-
             <CardContent className="space-y-4">
               <hr className="border-dashed" />
-
-              <ul className="list-outside space-y-3 text-sm">
+              <ul className="space-y-3 text-sm sm:text-base">
                 {[
-                  "Everything in Pro Plan",
-                  "5GB Cloud Storage",
-                  "Email and Chat Support",
-                ].map((item, index) => (
-                  <li key={index} className="flex items-center gap-2">
-                    <Check className="size-3" />
+                  "Up to 15 Admins",
+                  "Unlimited Members",
+                  "1,000 Emails / mo",
+                  "1,000 WhatsApp Messages / mo",
+                  "Advanced Automations",
+                  "Custom Member Tags & Filters",
+                  "Priority Support & Reporting",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-2">
+                    <Check className="h-4 w-4 text-green-600" />
                     {item}
                   </li>
                 ))}
               </ul>
             </CardContent>
-
             <CardFooter className="mt-auto">
               <Button asChild variant="outline" className="w-full">
-                <Link href="">Get Started</Link>
+                <Link href="#">Start Now</Link>
               </Button>
             </CardFooter>
           </Card>
@@ -142,4 +105,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

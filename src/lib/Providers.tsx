@@ -3,7 +3,6 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { usePathname } from "next/navigation";
-// import AppBar from '@/components/blocks/AppBar';
 import { HeroHeader } from "@/components/header";
 import FooterSection from "@/components/footer";
 import { Toaster } from "@/components/ui/sonner";
@@ -19,6 +18,7 @@ export default function Provider({
   if (!publishableKey) {
     throw new Error("Missing NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY");
   }
+
   return (
     <ClerkProvider publishableKey={publishableKey}>
       <NextThemesProvider

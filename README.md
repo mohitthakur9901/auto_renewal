@@ -54,4 +54,11 @@ membership plans and their features
 
 <!-- Email Services -->
 
-S
+
+<!-- Settings page fix  -->
+
+change ui
+wrap it to client component
+add image preview option 
+it should be genric component
+it can create or update user details 
