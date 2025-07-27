@@ -1,5 +1,4 @@
-import { Activity, DraftingCompass, Mail, Zap } from "lucide-react";
-import Image from "next/image";
+import { Activity, Bell, CreditCard, Users } from "lucide-react";
 
 export default function FeaturesSection() {
   return (
@@ -9,29 +8,29 @@ export default function FeaturesSection() {
           <div className="lg:col-span-2">
             <div className="md:pr-6 lg:pr-0">
               <h2 className="text-4xl font-semibold lg:text-5xl">
-                Built for Scaling teams
+                Designed for Membership-Based Businesses
               </h2>
-              <p className="mt-6">
-                Orrupti aut temporibus assumenda atque ab, accusamus sit,
-                molestiae veniam laboriosam pariatur.
+              <p className="mt-6 text-muted-foreground">
+                Manage your members, automate recurring payments, and stay connected —
+                all from one powerful platform.
               </p>
             </div>
             <ul className="mt-8 divide-y border-y *:flex *:items-center *:gap-3 *:py-3">
               <li>
-                <Mail className="size-5" />
-                Email and web support
+                <Users className="size-5" />
+                Member management dashboard
               </li>
               <li>
-                <Zap className="size-5" />
-                Fast response time
+                <CreditCard className="size-5" />
+                Recurring billing & payment automation
+              </li>
+              <li>
+                <Bell className="size-5" />
+                Smart alerts & renewal reminders
               </li>
               <li>
                 <Activity className="size-5" />
-                Menitoring and analytics
-              </li>
-              <li>
-                <DraftingCompass className="size-5" />
-                Architectural review
+                Insights & performance analytics
               </li>
             </ul>
           </div>

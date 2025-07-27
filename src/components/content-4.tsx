@@ -8,21 +8,18 @@ export default function ContentSection() {
       <div className="mx-auto max-w-5xl px-6">
         <div className="grid gap-6 md:grid-cols-2 md:gap-12">
           <h2 className="text-4xl font-medium">
-            The Lyra ecosystem brings together our models, products and
-            platforms.
+            A complete toolkit for managing memberships at scale
           </h2>
           <div className="space-y-6">
             <p>
-              Lyra is evolving to be more than just the models. It supports an
-              entire ecosystem — from products to the APIs and platforms helping
-              developers and businesses innovate.
+              Our platform helps you handle everything — from member signups and 
+              recurring payments to real-time alerts and retention analytics — all 
+              in one place.
             </p>
             <p>
-              Tailark.{" "}
-              <span className="font-bold">It supports an entire ecosystem</span>{" "}
-              — from products innovate. Sit minus, quod debitis autem quia
-              aspernatur delectus impedit modi, neque non id ad dignissimos?
-              Saepe deleniti perferendis beatae.
+              Built for gyms, clubs, coworking spaces, and communities, 
+              <span className="font-bold"> it gives you full control over the membership lifecycle</span>.
+              Automate what matters and focus on delivering value to your members.
             </p>
             <Button
               asChild
@@ -30,7 +27,7 @@ export default function ContentSection() {
               size="sm"
               className="gap-1 pr-1.5"
             >
-              <Link href="#">
+              <Link href="#features">
                 <span>Learn More</span>
                 <ChevronRight className="size-2" />
               </Link>

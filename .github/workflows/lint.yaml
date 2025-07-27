@@ -9,6 +9,7 @@ jobs:
   Continuous-Integration:
     name: "Performing linting and formatting"
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -17,9 +18,15 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "18"
+          cache: "pnpm"
 
-      - name: Install dependencies
-        run: npm install --legacy-peer-deps
+      - name: Enable corepack & install pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@8.14.0 --activate
 
-      - name: Write formatting changes
-        run: npm run format:write
+      - name: Install dependencies with pnpm
+        run: pnpm install
+
+      - name: Run formatting
+        run: pnpm run format:write

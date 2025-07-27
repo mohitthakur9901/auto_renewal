@@ -30,10 +30,12 @@ export async function sendEmail({
   dynamicTemplateData,
 }: SendMailProps) {
   const resend = getResendClient();
-  await resend.emails.send({
+  const {data , error} = await resend.emails.send({
     from: from,
     to: to,
     subject: `Hi ${dynamicTemplateData.name}, membership reminder from ${dynamicTemplateData.placeName}`,
     react: EmailTemplate(dynamicTemplateData),
   });
+
+  return {data, error};
 }

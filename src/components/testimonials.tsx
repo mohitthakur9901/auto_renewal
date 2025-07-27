@@ -7,12 +7,12 @@ export default function Testimonials() {
       <div className="mx-auto max-w-6xl space-y-8 px-6 md:space-y-16">
         <div className="relative z-10 mx-auto max-w-xl space-y-6 text-center md:space-y-12">
           <h2 className="text-4xl font-medium lg:text-5xl">
-            Build by makers, loved by thousand developers
+            Trusted by growing communities and member-first businesses
           </h2>
           <p>
-            Gemini is evolving to be more than just the models. It supports an
-            entire to the APIs and platforms helping developers and businesses
-            innovate.
+            From gyms and yoga studios to coworking spaces and online communities — our
+            platform helps organizations simplify billing, reduce churn, and engage
+            their members with ease.
           </p>
         </div>
 
@@ -30,12 +30,9 @@ export default function Testimonials() {
             <CardContent>
               <blockquote className="grid h-full grid-rows-[1fr_auto] gap-6">
                 <p className="text-xl font-medium">
-                  Tailus has transformed the way I develop web applications.
-                  Their extensive collection of UI components, blocks, and
-                  templates has significantly accelerated my workflow. The
-                  flexibility to customize every aspect allows me to create
-                  unique user experiences. Tailus is a game-changer for modern
-                  web development
+                  We’ve cut down admin time by over 70%. Automated reminders and
+                  recurring payments mean fewer cancellations and more happy members.
+                  This platform just works — seamlessly.
                 </p>
 
                 <div className="grid grid-cols-[auto_1fr] items-center gap-3">
@@ -43,9 +40,6 @@ export default function Testimonials() {
                     <AvatarImage
                       src="https://tailus.io/images/reviews/shekinah.webp"
                       alt="Shekinah Tshiokufila"
-                      height="400"
-                      width="400"
-                      loading="lazy"
                     />
                     <AvatarFallback>ST</AvatarFallback>
                   </Avatar>
@@ -55,19 +49,21 @@ export default function Testimonials() {
                       Shekinah Tshiokufila
                     </cite>
                     <span className="text-muted-foreground block text-sm">
-                      Software Ingineer
+                      Owner, Movement Studio
                     </span>
                   </div>
                 </div>
               </blockquote>
             </CardContent>
           </Card>
+
           <Card className="md:col-span-2">
             <CardContent className="h-full pt-6">
               <blockquote className="grid h-full grid-rows-[1fr_auto] gap-6">
                 <p className="text-xl font-medium">
-                  Tailus is really extraordinary and very practical, no need to
-                  break your head. A real gold mine.
+                  Billing used to be our biggest headache. Now it’s fully automated.
+                  Our members love the renewal reminders — and we love getting paid
+                  on time.
                 </p>
 
                 <div className="grid grid-cols-[auto_1fr] items-center gap-3">
@@ -75,28 +71,26 @@ export default function Testimonials() {
                     <AvatarImage
                       src="https://tailus.io/images/reviews/jonathan.webp"
                       alt="Jonathan Yombo"
-                      height="400"
-                      width="400"
-                      loading="lazy"
                     />
                     <AvatarFallback>JY</AvatarFallback>
                   </Avatar>
                   <div>
                     <cite className="text-sm font-medium">Jonathan Yombo</cite>
                     <span className="text-muted-foreground block text-sm">
-                      Software Ingineer
+                      Community Manager, Founders Hub
                     </span>
                   </div>
                 </div>
               </blockquote>
             </CardContent>
           </Card>
+
           <Card>
             <CardContent className="h-full pt-6">
               <blockquote className="grid h-full grid-rows-[1fr_auto] gap-6">
                 <p>
-                  Great work on tailfolio template. This is one of the best
-                  personal website that I have seen so far!
+                  Onboarding new members is now instant. The dashboard is intuitive,
+                  and support has been excellent from day one.
                 </p>
 
                 <div className="grid items-center gap-3 [grid-template-columns:auto_1fr]">
@@ -104,9 +98,6 @@ export default function Testimonials() {
                     <AvatarImage
                       src="https://tailus.io/images/reviews/yucel.webp"
                       alt="Yucel Faruksahan"
-                      height="400"
-                      width="400"
-                      loading="lazy"
                     />
                     <AvatarFallback>YF</AvatarFallback>
                   </Avatar>
@@ -115,19 +106,20 @@ export default function Testimonials() {
                       Yucel Faruksahan
                     </cite>
                     <span className="text-muted-foreground block text-sm">
-                      Creator, Tailkits
+                      Co-Founder, Urban Cowork
                     </span>
                   </div>
                 </div>
               </blockquote>
             </CardContent>
           </Card>
-          <Card className="card variant-mixed">
+
+          <Card>
             <CardContent className="h-full pt-6">
               <blockquote className="grid h-full grid-rows-[1fr_auto] gap-6">
                 <p>
-                  Great work on tailfolio template. This is one of the best
-                  personal website that I have seen so far!
+                  We’ve tried several tools — this is the only one that scales with us.
+                  Whether you have 50 or 500 members, everything just flows.
                 </p>
 
                 <div className="grid grid-cols-[auto_1fr] gap-3">
@@ -135,16 +127,13 @@ export default function Testimonials() {
                     <AvatarImage
                       src="https://tailus.io/images/reviews/rodrigo.webp"
                       alt="Rodrigo Aguilar"
-                      height="400"
-                      width="400"
-                      loading="lazy"
                     />
-                    <AvatarFallback>YF</AvatarFallback>
+                    <AvatarFallback>RA</AvatarFallback>
                   </Avatar>
                   <div>
                     <p className="text-sm font-medium">Rodrigo Aguilar</p>
                     <span className="text-muted-foreground block text-sm">
-                      Creator, TailwindAwesome
+                      Founder, Digital Creators Circle
                     </span>
                   </div>
                 </div>

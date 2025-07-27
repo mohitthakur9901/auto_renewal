@@ -9,6 +9,7 @@ interface CloudinaryReturnResponse {
   secure_url: string;
   public_id: string;
 }
+
 export async function createUser(formData: FormData) {
   try {
     console.log("formData", formData);
@@ -23,7 +24,6 @@ export async function createUser(formData: FormData) {
     const upiid = formData.get("upiid")?.toString();
     const address = formData.get("address")?.toString();
     const placeName = formData.get("placeName")?.toString();
-
     const qrcode = formData.get("qrcode") as File;
 
     if (!qrcode) {
@@ -42,10 +42,10 @@ export async function createUser(formData: FormData) {
           (error, result) => {
             if (error) reject(error);
             else resolve(result as CloudinaryReturnResponse);
-          },
+          }
         );
         uploadStream.end(buffer);
-      },
+      }
     );
 
     if (!result) {

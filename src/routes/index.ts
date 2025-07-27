@@ -20,6 +20,7 @@ export const PATH_DASHBOARD = {
     list: path(ROOTS_DASHBOARD, "/members/list"),
     new: path(ROOTS_DASHBOARD, "/members/new"),
     view: path(ROOTS_DASHBOARD, "/members/:id"),
+    email: path(ROOTS_DASHBOARD, "/members/email"),
   },
   services: {
     root: path(ROOTS_DASHBOARD, "/services"),

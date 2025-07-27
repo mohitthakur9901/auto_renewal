@@ -3,10 +3,10 @@
 import { currentUser } from "@clerk/nextjs/server";
 import { NewMemberSchema, NewMember } from "./schema";
 import client from "@/lib/db";
-import { MemberStatus } from "@/generated/prisma";
+import { EmailStatus, MemberStatus } from "@/generated/prisma";
 
 export async function createMember(formData: FormData) {
-  const clerUser = await currentUser();
+  const clerkUser = await currentUser();
 
   const rawData = {
     name: formData.get("name"),
@@ -21,40 +21,83 @@ export async function createMember(formData: FormData) {
 
   if (!validation.success) {
     return {
+      success: false,
       message: "Validation Failed",
       errors: validation.error.flatten().fieldErrors,
     };
   }
+
   const data = validation.data;
 
   try {
     const user = await client.user.findFirst({
+      where: { clerkId: clerkUser?.id },
+    });
+
+    if (!user) {
+      return {
+        success: false,
+        message: "Authenticated user not found in DB.",
+      };
+    }
+
+    const existingMember = await client.member.findFirst({
       where: {
-        clerkId: clerUser?.id,
+        email: data.email,
       },
     });
-    // if exisit then update
+
+    if (existingMember) {
+      if (existingMember.isDeleted) {
+        const updated = await client.member.update({
+          where: { id: existingMember.id },
+          data: {
+            isDeleted: false,
+            status: "ACTIVE",
+            name: data.name,
+            phone: data.phone,
+            address: data.address,
+            joindate: data.joindate,
+            expirydate: data.expirydate,
+          },
+        });
+        return {
+          success: true,
+          message: "Member reactivated successfully.",
+          member: updated,
+        };
+      }
+
+      return {
+        success: false,
+        message: "A member with this email already exists.",
+      };
+    }
+
     const member = await client.member.create({
       data: {
-        email: data.email,
         name: data.name,
+        email: data.email,
         phone: data.phone,
         address: data.address,
         joindate: data.joindate,
         expirydate: data.expirydate,
-        createdBy: user?.id as unknown as number,
+        createdBy: user.id,
       },
     });
+
     return {
       success: true,
-      message: "Member Created Successfully",
+      message: "Member created successfully.",
       member,
     };
   } catch (error) {
+    console.error("createMember error:", error);
+
     return {
       success: false,
-      message: "Something went wrong",
-      error,
+      message: "Something went wrong while creating member.",
+      error: error,
     };
   }
 }
@@ -68,6 +111,7 @@ export async function deleteMember(memberId: number) {
       },
       data: {
         isDeleted: true,
+        status: "INACTIVE",
       },
     });
     if (!member) {
@@ -193,6 +237,56 @@ export async function searchMember(query: string) {
         name: true,
         email: true,
         phone: true,
+      },
+    });
+
+    return {
+      success: true,
+      message: "Member searched successfully",
+      data: members,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      message: "Error While searching member",
+      error,
+    };
+  }
+}
+
+export async function EmailsSentToMembers(query: EmailStatus) {
+  try {
+    const clerkUser = await currentUser();
+
+    if (!clerkUser) {
+      return {
+        success: false,
+        message: "User not authenticated",
+      };
+    }
+
+    const user = await client.user.findFirst({
+      where: {
+        clerkId: clerkUser.id,
+        isDeleted: false,
+      },
+    });
+
+    const members = await client.member.findMany({
+      where: {
+        createdBy: user?.id,
+        EmailLog: {
+          some: {
+            status: query,
+          },
+        },
+      },
+      include: {
+        EmailLog: {
+          where: {
+            status: query,
+          },
+        },
       },
     });
 
