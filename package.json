@@ -14,7 +14,7 @@
     "generate": "prisma generate"
   },
   "engines": {
-    "pnpm": "8.14.0"
+    "pnpm": "10.11.0"
   },
   "dependencies": {
     "@clerk/nextjs": "6.22.0",
