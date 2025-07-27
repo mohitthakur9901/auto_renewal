@@ -13,6 +13,9 @@
     "prisma": "prisma",
     "generate": "prisma generate"
   },
+  "engines": {
+    "pnpm": "8.14.0"
+  },
   "dependencies": {
     "@clerk/nextjs": "6.22.0",
     "@hookform/resolvers": "^5.0.1",
